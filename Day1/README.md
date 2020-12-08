@@ -1,7 +1,4 @@
-﻿Advent of Code[About][Events][Shop][Settings][Log Out]akasoggybunz 2*
-        //2020[Calendar][AoC++][Sponsors][Leaderboard][Stats]
-Our sponsors help make Advent of Code possible:
-Jagex - Work with developers of record-breaking MMO RuneScape!
+
 --- Day 1: Report Repair ---
 After saving Christmas five years in a row, you've decided to take a vacation at a nice resort on a tropical island. Surely, Christmas will go on without you.
 
