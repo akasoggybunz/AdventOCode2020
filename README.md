@@ -10,5 +10,5 @@ To save your vacation, you need to get all fifty stars by December 25th.
 
 Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!
 
-## Leaderboard
+## Private Leaderboard
 https://adventofcode.com/2020/leaderboard/private/view/1069872 
