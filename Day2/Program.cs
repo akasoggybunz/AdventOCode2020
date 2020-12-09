@@ -10,14 +10,14 @@ namespace Day2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(" ~~~ Advent of Code Day 1!!! ~~~");
+            Console.WriteLine(" ~~~ Advent of Code Day 2!!! ~~~");
             List<string> inputList = new List<string>();
             int sum = 0;
 
             // Grab Input
             try
             {
-                Console.WriteLine(" ~~~ Reading Expense report input file");
+                Console.WriteLine(" ~~~ Reading input file");
 
                 using StreamReader sr = new StreamReader("./input.txt");
                 string line;
