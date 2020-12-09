@@ -15,6 +15,8 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 
 [Day 2](https://github.com/akasoggybunz/AdventOCode2020/tree/master/Day2)
 
+[Day 3](https://github.com/akasoggybunz/AdventOCode2020/tree/master/Day3)
+
 
 ## Private Leaderboard
 https://adventofcode.com/2020/leaderboard/private/view/1069872 
