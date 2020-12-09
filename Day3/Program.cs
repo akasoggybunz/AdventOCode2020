@@ -16,6 +16,7 @@ namespace Day3
             try
             {
                 Console.WriteLine(" ~~~ Reading input file");
+                long totalTreesHit = 0;
 
                 using StreamReader sr = new StreamReader("./input.txt");
                 string line;
@@ -26,9 +27,18 @@ namespace Day3
                 }
                 // This while and foreach could be together.. but bollocks 
                 Console.WriteLine("Calculating Route...");
-                Console.WriteLine("Trees hit Part 1: " + TreesHitWithSlope(inputList, 3, 1));
-                //Console.WriteLine("Valid Passwords Count Part 2: " + ValidPasswordsCount(inputList, 2).ToString());
+                totalTreesHit = TreesHitWithSlope(inputList, 3, 1);
+                Console.WriteLine("Trees hit Part 1: " + totalTreesHit);
+                Console.WriteLine("~~~~~~~~Calculate all Slopes~~~~~~~");
+                totalTreesHit = 0;
 
+                totalTreesHit =  TreesHitWithSlope(inputList, 3, 1) *
+                                 TreesHitWithSlope(inputList, 1, 1) *
+                                 TreesHitWithSlope(inputList, 5, 1) *
+                                 TreesHitWithSlope(inputList, 7, 1) *
+                                 TreesHitWithSlope(inputList, 1, 2);
+
+                Console.WriteLine("Trees hit Part 2: " + totalTreesHit);
             }
             catch (Exception exception)
             {
@@ -40,39 +50,43 @@ namespace Day3
         /// Get route from slope
         /// </summary>
         /// <param name="routeList">route</param>
-        /// <param name="right">slope right</param>
-        /// <param name="down">slope down</param>
+        /// <param name="run">slope right</param>
+        /// <param name="rise">slope down</param>
         /// <returns>Tree Hit Count</returns>
-        public static int TreesHitWithSlope(List<string> routeList, int rise, int run)
+        public static int TreesHitWithSlope(List<string> routeList, int run, int rise)
         {
             int treesHit = 0;
             int rightPos = 0;
             Console.Write(routeList[0].ToString() + "        ");
 
-            for (int i = 1; i < routeList.Count; i++)
+            for (int i = 0; i < routeList.Count; i += rise)
             {
-                Console.WriteLine(i);
 
-                var routeRise = routeList[i - 1].ToCharArray();
+                if (i + rise >= routeList.Count)
+                {
+                    break;
+                }
+                var routeRise = routeList[i + rise].ToCharArray();
                 var routeRun =  routeList[i].ToCharArray();
                 // check Position
-                rightPos = (rightPos + rise < routeRise.Length) ? rightPos + rise : ((rightPos + rise)% routeRise.Length) ; 
+                rightPos = (rightPos + run < routeRise.Length) ? rightPos + run : ((rightPos + run)% routeRise.Length) ; 
                 // check tree hit
-                if (routeRun[rightPos].Equals('#'))
+                if (routeRise[rightPos].Equals('#'))
                 {
                     treesHit++;
-                    routeRun[rightPos] = 'X';
+                    routeRise[rightPos] = 'X';
                 }
                 else
                 {
-                    routeRun[rightPos] = 'O';
+                    routeRise[rightPos] = 'O';
 
                 }
 
-                foreach (var r in routeRun.ToList()) Console.Write(r);
-                Console.WriteLine("              Pos: " + rightPos);
+                //foreach (var r in routeRise.ToList()) Console.Write(r);
+                //Console.WriteLine("              Pos: " + rightPos + "," +i + "   TreesHit: " + treesHit);
             }
             
+            Console.WriteLine("Rise: " + rise + " run: " + run + " treesHit: "+   treesHit);
             return treesHit;
         }
 
